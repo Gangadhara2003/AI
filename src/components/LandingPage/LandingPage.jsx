@@ -39,13 +39,13 @@ const LandingPage = ({ onStartChat, onLogin }) => {
       <footer className="landing-footer">
         <p>Contact Information:</p>
         <div className="contact-links">
-          <a href="mailto:your.email@example.com" target="_blank" rel="noopener noreferrer">
+          <a href="mailto:gangadharaks2003@gmail.com" target="_blank" rel="noopener noreferrer">
             <img src={assets.mail_icon || 'placeholder_mail.png'} alt="Mail" />
           </a>
           <a href="https://www.linkedin.com/in/gangadhara-k-s-563142286?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer">
             <img src={assets.linkedin_icon || 'placeholder_linkedin.png'} alt="LinkedIn" />
           </a>
-          <a href="https://github.com/your-github" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/Gangadhara2003" target="_blank" rel="noopener noreferrer">
             <img src={assets.github_icon || 'placeholder_github.png'} alt="GitHub" />
           </a>
         </div>
