@@ -1,6 +1,6 @@
 /* ===== Settings Component Styles ===== */
 .settings {
-    margin: 0 auto;
+    margin: auto;
     padding: 40px 30px;
     background-color: var(--gemini-card-bg);
     border-radius: 12px;

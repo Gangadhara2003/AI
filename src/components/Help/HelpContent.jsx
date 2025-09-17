@@ -1,7 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Help.css';
+import { useAuth } from '../../context/AuthContext';
 
 const HelpContent = ({ onClose }) => {
+  const [feedback, setFeedback] = useState('');
+  const [message, setMessage] = useState('');
+  const { userInfo } = useAuth();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!feedback) return;
+
+    try {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/feedback`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+        body: JSON.stringify({ text: feedback }),
+      });
+
+      if (res.ok) {
+        setMessage('Feedback submitted successfully!');
+        setFeedback('');
+      } else {
+        setMessage('Failed to submit feedback. Please try again.');
+      }
+    } catch (error) {
+      setMessage('Server error. Please try again later.');
+    }
+  };
+
   return (
     <div className="help-overlay">
       <div className="help-content">
@@ -26,10 +56,16 @@ const HelpContent = ({ onClose }) => {
         <p>
           We appreciate your feedback! Please use the form below to share your thoughts, suggestions, or report any issues.
         </p>
-        <form className="feedback-form">
-          <textarea placeholder="Your feedback..." rows="5"></textarea>
+        <form className="feedback-form" onSubmit={handleSubmit}>
+          <textarea
+            placeholder="Your feedback..."
+            rows="5"
+            value={feedback}
+            onChange={(e) => setFeedback(e.target.value)}
+          ></textarea>
           <button className='feedback-button' type="submit">Submit Feedback</button>
         </form>
+        {message && <p>{message}</p>}
       </div>
     </div>
   );
