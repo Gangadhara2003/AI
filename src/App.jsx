@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Route, Routes, Navigate, useNavigate, HashRouter } from 'react-router-dom';
+import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
 import Sidebar from './components/Sidebar/Sidebar'
 import Main from './components/Main/Main'
 import LandingPage from './components/LandingPage/LandingPage'
@@ -44,7 +44,6 @@ const App = () => {
   };
 
   return (
-    <HashRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
@@ -76,7 +75,6 @@ const App = () => {
           }
         />
       </Routes>
-    </HashRouter>
   )
 }
 
