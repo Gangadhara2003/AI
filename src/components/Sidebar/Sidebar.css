@@ -1,0 +1,171 @@
+.Sidebar {
+    min-height: 100vh;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--gemini-card-bg); /* Using card background for sidebar */
+    padding: 25px 15px; /* Increased padding */
+    width: 70px; /* Slightly wider collapsed state */
+    transition: all 0.3s ease;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.05); /* Subtle shadow */
+}
+
+.Sidebar.extended {
+    width: 250px; /* Wider extended state */
+}
+
+.Sidebar.show {
+    display: inline-flex;
+}
+
+.Sidebar .top {
+    display: flex;
+    flex-direction: column;
+}
+
+.Sidebar .menu {
+    width: 25px; /* Slightly larger menu icon */
+    height: 25px;
+    border-radius: 50%;
+    display: block;
+    margin-left: 5px; /* Adjusted margin */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 5px; /* Add padding for better click area */
+}
+
+.Sidebar .menu:hover {
+    background-color: var(--gemini-card-hover-bg);
+}
+
+.Sidebar .new-chat {
+    margin-top: 40px; /* Adjusted margin */
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px; /* Adjusted padding */
+    background-color: var(--gemini-card-hover-bg); /* Use hover color for new chat button */
+    border-radius: 50px;
+    font-size: 15px; /* Slightly larger font */
+    color: var(--gemini-secondary-text-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.Sidebar .new-chat:hover {
+    background-color: #d0e2ff; /* A bit darker on hover */
+}
+
+.Sidebar .new-chat img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.Sidebar .recent {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px; /* Adjusted margin */
+}
+
+.Sidebar .recent-title {
+    margin-bottom: 15px; /* Adjusted margin */
+    color: var(--gemini-secondary-text-color);
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.Sidebar .recent-entry {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px; /* Adjusted padding */
+    border-radius: 50px;
+    color: var(--gemini-secondary-text-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Remove underline for links */
+}
+
+.Sidebar .recent-entry img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.Sidebar .recent-entry p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 15px;
+}
+
+.Sidebar .recent-entry:hover {
+    background-color: var(--gemini-card-hover-bg);
+}
+
+.Sidebar .bottom {
+    display: flex;
+    flex-direction: column;
+}
+
+.Sidebar .bottom-item {
+    padding-left: 10px;
+    margin-bottom: 10px; /* Space between bottom items */
+}
+
+.Sidebar .logout-button {
+    background-color: transparent; /* Make it transparent */
+    color: var(--gemini-secondary-text-color); /* Use secondary text color */
+    font-weight: 500; /* Make it a bit bolder */
+}
+
+.Sidebar .logout-button:hover {
+    background-color: var(--gemini-card-hover-bg); /* Consistent hover */
+}
+
+@media (max-width: 600px) {
+    .Sidebar {
+        display: none;
+        position: fixed; /* Changed to fixed */
+        left: 0;
+        top: 0;
+        z-index: 100;
+        width: 100%;
+        max-width: 280px; /* Slightly wider for mobile */
+        height: 100vh; /* Full height */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+        padding: 20px 10px; /* Adjusted padding */
+    }
+
+    .Sidebar.show {
+        display: flex; /* Use flex for column layout */
+    }
+
+    .Sidebar .menu {
+        display: none;
+    }
+
+    .Sidebar .close-sidebar-icon {
+        display: none; /* Removed as we're handling close differently */
+    }
+
+    .Sidebar .new-chat p,
+    .Sidebar .recent-title,
+    .Sidebar .recent-entry p,
+    .Sidebar .bottom-item p {
+        display: block;
+    }
+
+    .Sidebar .new-chat {
+        justify-content: center; /* Center content in new chat button */
+    }
+
+    .Sidebar .recent-entry {
+        justify-content: flex-start; /* Align recent entries to start */
+    }
+
+    .Sidebar .bottom-item {
+        padding-left: 15px; /* Adjusted padding */
+    }
+}

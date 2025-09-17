@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+*{
+  padding:0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: outfit;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+body {
+  background-color: #ffffff; /* Light background for the whole page */
+}
+
+#root{
+  min-height: 100vh;  
+  display: flex;
+  flex-grow: 1; /* Make #root expand to fill available space */
+  animation: fadeIn 1.5s;
+
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh; /* Ensure it takes full viewport height */
+  width: 100%; /* Ensure it takes full width of its parent */
+  align-items: flex-start; /* Align items to the top */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+
+}

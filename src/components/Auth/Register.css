@@ -1,0 +1,116 @@
+/* Container for the login/register form */
+.login-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  box-sizing: border-box;
+  text-align: center;
+  width: fit-content; /* Size to content */
+  max-width: 400px; /* Prevent it from becoming too wide */
+}
+
+/* New container for centering login/register pages */
+.auth-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Take full viewport height */
+  width: 100%; /* Ensure it takes full width */
+  background: rgb(255, 255, 255)
+}
+
+/* Heading styles */
+.login-container h2 {
+  font-size: 2.2em;
+  color: #333333;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+/* Form group for labels and inputs */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9em;
+  color: #555555;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+/* Input field styling */
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1em;
+  color: #333333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+/* Primary button styling */
+.btn-primary {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Message display (for errors/success) */
+.message {
+  /* background-color: #ffe0e6; */
+  /* color: #d32f2f; */
+  padding: 12px;
+  margin-bottom: 20px;
+  /* border: 1px solid #ef9a9a; */
+  border-radius: 8px;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+/* Footer for links (e.g., Register/Login) */
+.form-footer {
+  margin-top: 25px;
+  font-size: 0.9em;
+  color: #666666;
+}
+
+.form-footer a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.form-footer a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}

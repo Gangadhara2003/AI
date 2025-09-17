@@ -1,0 +1,244 @@
+/* ===== Help Overlay ===== */
+.help-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65); /* Richer overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(6px); /* Stronger glassy blur */
+  animation: overlayFade 0.3s ease-out;
+}
+
+@keyframes overlayFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== Help Content Container ===== */
+.help-content {
+  background: rgba(255, 255, 255, 0.9); /* Glassmorphic white */
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  width: 90%;
+  max-width: 700px;
+  max-height: 85vh; /* Prevent modal overflow */
+  overflow-y: auto; /* Scroll if content too tall */
+  position: relative;
+  color: var(--gemini-text-color);
+  animation: contentPop 0.35s ease-out;
+}
+
+@keyframes contentPop {
+  from { opacity: 0; transform: scale(0.95) translateY(-15px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ===== Headings ===== */
+.help-content h2 {
+  color: var(--gemini-heading-color);
+  font-size: 2.2em;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--gemini-border-color);
+  padding-bottom: 10px;
+  font-weight: 700;
+}
+
+.help-content h3 {
+  color: var(--gemini-heading-color);
+  font-size: 1.4em;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+/* ===== Paragraphs ===== */
+.help-content p {
+  margin-bottom: 16px;
+  line-height: 1.7;
+  font-size: 1.05em;
+  color: var(--gemini-secondary-text-color);
+}
+
+/* ===== List (Contact Info) ===== */
+.help-content ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 25px;
+}
+
+.help-content ul li {
+  margin-bottom: 10px;
+  font-size: 1.05em;
+}
+
+.help-content ul li a {
+  color: var(--gemini-link-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.help-content ul li a:hover,
+.help-content ul li a:focus {
+  text-decoration: underline;
+  color: var(--gemini-link-hover-color);
+  outline: none;
+}
+
+/* ===== Feedback Form ===== */
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.feedback-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--gemini-border-color);
+  border-radius: 8px;
+  background-color: var(--gemini-input-bg);
+  color: var(--gemini-text-color);
+  resize: vertical;
+  min-height: 110px;
+  font-size: 1em;
+  line-height: 1.5;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feedback-form textarea:focus {
+  border-color: var(--gemini-button-bg);
+  box-shadow: 0 0 0 3px rgba(var(--gemini-button-bg-rgb), 0.25);
+  outline: none;
+}
+
+.feedback-form button {
+  padding: 12px 24px;
+  background: linear-gradient(145deg, var(--gemini-button-bg), var(--gemini-button-hover-bg));
+  color: white;
+  border: 1px solid rgba(var(--gemini-button-bg-rgb), 0.2);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.feedback-form button:hover,
+.feedback-form button:focus {
+  background: linear-gradient(145deg, var(--gemini-button-hover-bg), var(--gemini-button-bg));
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  outline: none;
+  border-color: rgba(var(--gemini-button-hover-bg-rgb), 0.4);
+}
+
+/* ===== Close Button ===== */
+.close-button {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.6em;
+  cursor: pointer;
+  color: var(--gemini-secondary-text-color);
+  transition: color 0.3s ease, transform 0.25s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: var(--gemini-text-color);
+  transform: rotate(90deg) scale(1.1);
+  outline: none;
+}
+.feedback-button {
+  display: inline-block;
+  padding: 8px 16px; /* smaller size */
+  background: linear-gradient(135deg, var(--gemini-button-bg), var(--gemini-button-hover-bg));
+  color: #fff;
+  font-size: 0.9rem; /* smaller text */
+  font-weight: 600;
+  border: none;
+  border-radius: 6px; /* slightly rounded */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+.feedback-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0,0,0,0.25);
+  background-color: #45a049; /* Darker Green for hover */
+}
+
+.feedback-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.feedback-button:disabled {
+  background: #000000;
+  color: #666;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 768px) {
+  .help-content {
+    padding: 28px;
+    max-width: 95%;
+  }
+
+  .help-content h2 {
+    font-size: 1.9em;
+  }
+
+  .help-content h3 {
+    font-size: 1.25em;
+  }
+
+  .help-content p,
+  .help-content ul li {
+    font-size: 1em;
+  }
+
+  .feedback-form button {
+    font-size: 1em;
+    padding: 10px 16px;
+  }
+
+  .close-button {
+    font-size: 1.4em;
+  }
+}
+
+@media (max-width: 480px) {
+  .help-content {
+    padding: 20px;
+  }
+
+  .help-content h2 {
+    font-size: 1.6em;
+  }
+
+  .help-content h3 {
+    font-size: 1.15em;
+  }
+
+  .feedback-form textarea {
+    min-height: 90px;
+  }
+}
