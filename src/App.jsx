@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
+import { Route, Routes, Navigate, useNavigate, HashRouter } from 'react-router-dom';
 import Sidebar from './components/Sidebar/Sidebar'
 import Main from './components/Main/Main'
 import LandingPage from './components/LandingPage/LandingPage'
@@ -19,7 +19,7 @@ const App = () => {
       const handleResize = () => {
           const mobile = window.innerWidth <= 600;
           setIsMobile(mobile);
-          setShowSidebar(!mobile); // Show sidebar by default on desktop, hide on mobile
+          setShowSidebar(!mobile);
       };
 
       window.addEventListener('resize', handleResize);
@@ -44,44 +44,40 @@ const App = () => {
   };
 
   return (
-    <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/" element={<LandingPage onStartChat={handleStartChat} onLogin={handleLoginClick} />} />
-      <Route
-        path="/home"
-        element={
-          userInfo ? (
-            <div className="app-container">
-              {(showSidebar || !isMobile) && <Sidebar onLogout={handleLogoutClick} showSidebar={showSidebar} setShowSidebar={setShowSidebar} isMobile={isMobile} />}
-              <Main isMobile={isMobile} setShowSidebar={setShowSidebar} />
-            </div>
-          ) : (
-            <Navigate to="/login" replace />
-          )
-        }
-      />
-      <Route
-        path="/settings"
-        element={
-          userInfo ? (
-            <div className="app-container">
-              {(showSidebar || !isMobile) && <Sidebar onLogout={handleLogoutClick} showSidebar={showSidebar} setShowSidebar={setShowSidebar} isMobile={isMobile} />}
-              <Settings />
-            </div>
-          ) : (
-            <Navigate to="/login" replace />
-          )
-        }
-      />
-    </Routes>
+    <HashRouter>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<LandingPage onStartChat={handleStartChat} onLogin={handleLoginClick} />} />
+        <Route
+          path="/home"
+          element={
+            userInfo ? (
+              <div className="app-container">
+                {(showSidebar || !isMobile) && <Sidebar onLogout={handleLogoutClick} showSidebar={showSidebar} setShowSidebar={setShowSidebar} isMobile={isMobile} />}
+                <Main isMobile={isMobile} setShowSidebar={setShowSidebar} />
+              </div>
+            ) : (
+              <Navigate to="/login" replace />
+            )
+          }
+        />
+        <Route
+          path="/settings"
+          element={
+            userInfo ? (
+              <div className="app-container">
+                {(showSidebar || !isMobile) && <Sidebar onLogout={handleLogoutClick} showSidebar={showSidebar} setShowSidebar={setShowSidebar} isMobile={isMobile} />}
+                <Settings />
+              </div>
+            ) : (
+              <Navigate to="/login" replace />
+            )
+          }
+        />
+      </Routes>
+    </HashRouter>
   )
 }
 
 export default App
-
-
-
-
-
-
