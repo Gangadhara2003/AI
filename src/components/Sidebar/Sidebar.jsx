@@ -21,7 +21,7 @@ const Sidebar = ({onLogout, showSidebar, setShowSidebar, isMobile, setShowHelp})
             <img onClick={()=>setExtended(prev=>!prev)} className='menu' src={assets.menu_icon} alt="" />
             <div onClick={() => { newChat(); if (isMobile) setShowSidebar(false); navigate('/home'); }} className="new-chat">
                 <img src={assets.plus_icon} alt="" />
-                {extended ? <p>New Chat</p> : null}
+                {(extended || (isMobile && showSidebar)) ? <p>New Chat</p> : null}
             </div>
             {(extended || (isMobile && showSidebar))
             ? <div className="recent">

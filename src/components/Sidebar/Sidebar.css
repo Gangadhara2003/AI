@@ -150,12 +150,7 @@
         display: none; /* Removed as we're handling close differently */
     }
 
-    .Sidebar .new-chat p,
-    .Sidebar .recent-title,
-    .Sidebar .recent-entry p,
-    .Sidebar .bottom-item p {
-        display: block;
-    }
+    
 
     .Sidebar .new-chat {
         justify-content: center; /* Center content in new chat button */
