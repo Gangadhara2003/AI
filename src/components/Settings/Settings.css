@@ -215,3 +215,80 @@
         font-size: 0.9em;
     }
 }
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 22px;
+    padding: 20px 30px; /* Adjusted padding */
+    color: var(--gemini-secondary-text-color);
+    background-color: var(--gemini-card-bg);
+    box-shadow: 0 1px 2px var(--gemini-shadow-light);
+    z-index: 100;
+    width: 100%;
+}
+
+.nav img {
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.nav .gemini-clone {
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--gemini-text-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav .gemini-clone img {
+    width: 30px;
+    height: 30px;
+}
+
+.hamburger-menu {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .nav {
+        font-size: 18px;
+        padding: 15px 20px;
+    }
+
+    .nav img {
+        width: 35px;
+    }
+
+    .nav .gemini-clone {
+        font-size: 20px;
+    }
+
+    .nav .gemini-clone img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .hamburger-menu {
+        display: block;
+        width: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav {
+        padding: 10px 15px;
+    }
+
+    .nav .gemini-clone {
+        font-size: 18px;
+    }
+
+    .nav .gemini-clone img {
+        width: 20px;
+        height: 20px;
+    }
+}

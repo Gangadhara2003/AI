@@ -3,22 +3,16 @@ import './Sidebar.css'
 import{assets} from '../../assets/assets'
 import { Context } from '../../context/context'
 import { Link, useNavigate } from 'react-router-dom'
-import HelpContent from '../Help/HelpContent' // Import HelpContent
 
-const Sidebar = ({onLogout, showSidebar, setShowSidebar, isMobile}) => {
+const Sidebar = ({onLogout, showSidebar, setShowSidebar, isMobile, setShowHelp}) => {
 
     const [extended, setExtended] = useState(false)
-    const [showHelp, setShowHelp] = useState(false); // New state for HelpContent visibility
     const {newChat, pastChats, loadChat} = useContext(Context)
     const navigate = useNavigate();
 
     const handleHelpClick = () => {
       setShowHelp(true);
       if (isMobile) setShowSidebar(false); // Close sidebar on mobile when Help is opened
-    };
-
-    const handleCloseHelp = () => {
-      setShowHelp(false);
     };
 
   return (
@@ -59,7 +53,6 @@ const Sidebar = ({onLogout, showSidebar, setShowSidebar, isMobile}) => {
           </div>
         </div>
 
-        {showHelp && <HelpContent onClose={handleCloseHelp} />} {/* Conditionally render HelpContent */}
     </div>
   )
 }

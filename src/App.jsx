@@ -7,6 +7,7 @@ import Login from './components/Auth/Login'
 import Register from './components/Auth/Register'
 import Settings from './components/Settings/Settings'
 import { useAuth } from './context/AuthContext';
+import HelpContent from './components/Help/HelpContent';
 
 const App = () => {
   const { userInfo, logout } = useAuth();
@@ -14,6 +15,7 @@ const App = () => {
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
   const [showSidebar, setShowSidebar] = useState(window.innerWidth > 600);
+  const [showHelp, setShowHelp] = useState(false);
 
   useEffect(() => {
       const handleResize = () => {
@@ -44,6 +46,7 @@ const App = () => {
   };
 
   return (
+    <>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
@@ -53,7 +56,7 @@ const App = () => {
           element={
             userInfo ? (
               <div className="app-container">
-                {(showSidebar || !isMobile) && <Sidebar onLogout={handleLogoutClick} showSidebar={showSidebar} setShowSidebar={setShowSidebar} isMobile={isMobile} />}
+                {(showSidebar || !isMobile) && <Sidebar onLogout={handleLogoutClick} showSidebar={showSidebar} setShowSidebar={setShowSidebar} isMobile={isMobile} setShowHelp={setShowHelp} />}
                 <Main isMobile={isMobile} setShowSidebar={setShowSidebar} />
               </div>
             ) : (
@@ -66,8 +69,8 @@ const App = () => {
           element={
             userInfo ? (
               <div className="app-container">
-                {(showSidebar || !isMobile) && <Sidebar onLogout={handleLogoutClick} showSidebar={showSidebar} setShowSidebar={setShowSidebar} isMobile={isMobile} />}
-                <Settings />
+                {(showSidebar || !isMobile) && <Sidebar onLogout={handleLogoutClick} showSidebar={showSidebar} setShowSidebar={setShowSidebar} isMobile={isMobile} setShowHelp={setShowHelp} />}
+                <Settings isMobile={isMobile} setShowSidebar={setShowSidebar} />
               </div>
             ) : (
               <Navigate to="/login" replace />
@@ -75,6 +78,8 @@ const App = () => {
           }
         />
       </Routes>
+      {showHelp && <HelpContent onClose={() => setShowHelp(false)} />}
+    </>
   )
 }
 
