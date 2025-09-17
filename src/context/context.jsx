@@ -71,7 +71,7 @@ const ContextProvider = (props) => {
         const userInfo = JSON.parse(localStorage.getItem('userInfo'));
         const token = userInfo ? userInfo.token : null;
 
-        const response = await fetch('http://localhost:5000/api/gemini/generate', {
+                const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/gemini/generate`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
